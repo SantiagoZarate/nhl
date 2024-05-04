@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    container_name: nhl_container
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=rootpass
+      - POSTGRES_DB=nhl
+    ports:
+      - 5434:5432
+    image: postgres
