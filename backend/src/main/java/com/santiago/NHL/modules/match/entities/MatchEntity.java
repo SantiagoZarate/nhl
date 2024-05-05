@@ -32,8 +32,8 @@ public class MatchEntity {
 
   private String guest_team;
 
-  @JoinColumn(name = "mvp_player_id")
-  private UUID mvp;
+  // @JoinColumn(name = "mvp_player_id")
+  // private UUID mvp;
 
   @ManyToOne
   @JoinColumn(name = "mvp_player_id", updatable = false, insertable = false)
@@ -41,6 +41,7 @@ public class MatchEntity {
 
   private String score;
 
+  @Column(nullable = true)
   private String winner;
 
   @Column(columnDefinition = "DATE")

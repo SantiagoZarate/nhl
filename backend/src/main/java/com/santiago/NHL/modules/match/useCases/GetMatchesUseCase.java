@@ -9,12 +9,20 @@ import com.santiago.NHL.modules.match.entities.MatchEntity;
 import com.santiago.NHL.modules.match.repositories.MatchRepository;
 
 @Service
-public class GetAllMatchesSortedByDateUseCase {
+public class GetMatchesUseCase {
 
   @Autowired
   MatchRepository repository;
 
   public List<MatchEntity> execute() {
+    return repository.findAll();
+  }
+
+  public List<MatchEntity> byTeam(String team, int limit) {
+    return repository.findAllByTeam(team, limit);
+  }
+
+  public List<MatchEntity> latests() {
     return repository.findAllMatchesSortedByDate();
   }
 }
