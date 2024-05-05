@@ -1,14 +1,11 @@
 package com.santiago.NHL.modules.match.entities;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -26,8 +23,8 @@ import lombok.NoArgsConstructor;
 public class TeamEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+  @Column(name = "name")
+  private String name;
 
   @Column(length = 150)
   private String logo_url;

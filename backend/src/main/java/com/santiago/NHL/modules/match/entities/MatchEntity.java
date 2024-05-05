@@ -1,9 +1,11 @@
 package com.santiago.NHL.modules.match.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,5 +42,8 @@ public class MatchEntity {
   private String score;
 
   private String winner;
+
+  @Column(columnDefinition = "DATE")
+  private LocalDate date;
 
 }
