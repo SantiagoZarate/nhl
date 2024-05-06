@@ -3,6 +3,7 @@ package com.santiago.NHL.modules.match.entities;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import jakarta.persistence.Column;
@@ -32,11 +33,8 @@ public class MatchEntity {
 
   private String guest_team;
 
-  // @JoinColumn(name = "mvp_player_id")
-  // private UUID mvp;
-
   @ManyToOne
-  @JoinColumn(name = "mvp_player_id", updatable = false, insertable = false)
+  @JoinColumn(name = "mvp_player_id")
   private PlayerEntity playerEntity;
 
   private String score;

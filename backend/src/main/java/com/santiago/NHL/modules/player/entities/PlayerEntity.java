@@ -2,6 +2,7 @@ package com.santiago.NHL.modules.player.entities;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.match.entities.TeamEntity;
 
 import jakarta.persistence.Column;
@@ -30,10 +31,7 @@ public class PlayerEntity {
   @Column(length = 150)
   private String name;
 
-  @JoinColumn
-  private String team;
-
   @ManyToOne
-  @JoinColumn(name = "team_name", updatable = false, insertable = false)
+  @JoinColumn(name = "team", referencedColumnName = "name")
   private TeamEntity teamEntity;
 }
