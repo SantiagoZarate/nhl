@@ -2,7 +2,6 @@ package com.santiago.NHL.modules.player.entities;
 
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.match.entities.TeamEntity;
 
 import jakarta.persistence.Column;

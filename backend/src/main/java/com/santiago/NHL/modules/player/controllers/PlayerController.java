@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.santiago.NHL.modules.player.dtos.PlayerDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 import com.santiago.NHL.modules.player.useCases.GetPlayerUseCase;
 
@@ -25,7 +26,7 @@ public class PlayerController {
   private GetPlayerUseCase getPlayerUseCase;
 
   @GetMapping("")
-  public List<PlayerEntity> getAllPlayers() {
+  public List<PlayerDTO> getAllPlayers() {
     var results = getPlayerUseCase.execute();
     return results;
   }

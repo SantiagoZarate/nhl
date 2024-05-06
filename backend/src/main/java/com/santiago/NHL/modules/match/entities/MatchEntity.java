@@ -3,7 +3,6 @@ package com.santiago.NHL.modules.match.entities;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import jakarta.persistence.Column;
