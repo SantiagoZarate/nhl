@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.exception;
+package com.santiago.NHL.exception;
 
 import java.util.Date;
 

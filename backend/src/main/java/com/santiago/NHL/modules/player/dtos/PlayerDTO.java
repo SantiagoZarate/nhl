@@ -3,6 +3,8 @@ package com.santiago.NHL.modules.player.dtos;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.match.dtos.TeamDTO;
+import com.santiago.NHL.modules.match.entities.TeamEntity;
+import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,4 +21,22 @@ public class PlayerDTO {
   private String name;
   private TeamDTO team;
 
+  public static PlayerDTO map(PlayerEntity p) {
+    TeamEntity team = p.getTeamEntity();
+    TeamDTO teamDTO = TeamDTO
+        .builder()
+        .name(team.getName())
+        .image_url(team.getLogo_url())
+        .captain(team.getCaptain().getName())
+        .build();
+
+    PlayerDTO newPlayer = PlayerDTO
+        .builder()
+        .id(p.getId())
+        .name(p.getName())
+        .team(teamDTO)
+        .build();
+
+    return newPlayer;
+  }
 }

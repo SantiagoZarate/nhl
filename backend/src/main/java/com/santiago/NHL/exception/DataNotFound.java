@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.exception;
+package com.santiago.NHL.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 
