@@ -18,4 +18,5 @@ public class PlayerDTO {
   private UUID id;
   private String name;
   private TeamDTO team;
+
 }

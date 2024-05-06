@@ -25,28 +25,34 @@ public class GetPlayerUseCase {
     List<PlayerDTO> playersList = new ArrayList<>();
 
     rawPlayers.stream().forEach(p -> {
-      TeamEntity team = p.getTeamEntity();
-      TeamDTO teamDTO = TeamDTO
-          .builder()
-          .name(team.getName())
-          .image_url(team.getLogo_url())
-          .captain(team.getCaptain().getName())
-          .build();
-
-      PlayerDTO newPlayer = PlayerDTO
-          .builder()
-          .id(p.getId())
-          .name(p.getName())
-          .team(teamDTO)
-          .build();
-
-      playersList.add(newPlayer);
+      playersList.add(mapPlayerDTO(p));
     });
 
     return playersList;
   }
 
-  public Optional<PlayerEntity> byId(UUID id) {
-    return repository.findById(id);
+  public PlayerDTO byId(UUID id) throws Exception {
+    Optional<PlayerEntity> player = repository.findById(id);
+
+    return mapPlayerDTO(player.get());
+  }
+
+  private PlayerDTO mapPlayerDTO(PlayerEntity p) {
+    TeamEntity team = p.getTeamEntity();
+    TeamDTO teamDTO = TeamDTO
+        .builder()
+        .name(team.getName())
+        .image_url(team.getLogo_url())
+        .captain(team.getCaptain().getName())
+        .build();
+
+    PlayerDTO newPlayer = PlayerDTO
+        .builder()
+        .id(p.getId())
+        .name(p.getName())
+        .team(teamDTO)
+        .build();
+
+    return newPlayer;
   }
 }
