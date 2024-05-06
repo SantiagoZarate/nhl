@@ -36,14 +36,14 @@ public class MatchController {
   }
 
   @GetMapping("/{team}/win")
-  public List<MatchEntity> getAllMatchesWin(@PathVariable String team) {
+  public List<MatchDTO> getAllMatchesWin(@PathVariable String team) {
     String teamLowecase = team.toLowerCase();
     var results = matchesWonByTeamUseCase.execute(teamLowecase);
     return results;
   }
 
   @GetMapping("/{team}")
-  public List<MatchEntity> getMatchesByTeam(@PathVariable String team,
+  public List<MatchDTO> getMatchesByTeam(@PathVariable String team,
       @RequestParam(name = "limit", required = false, defaultValue = "10") String limit) {
     String teamLowercase = team.toLowerCase();
     var results = getMatchesUseCase.byTeam(teamLowercase, Integer.parseInt(limit));
@@ -52,7 +52,7 @@ public class MatchController {
   }
 
   @GetMapping("/mvp/{id}")
-  public List<MatchEntity> getAllMvpMatches(@PathVariable String id) {
+  public List<MatchDTO> getAllMvpMatches(@PathVariable String id) {
     var results = getMatchesByMVPPlayerUseCase.execute(id);
     return results;
   }
