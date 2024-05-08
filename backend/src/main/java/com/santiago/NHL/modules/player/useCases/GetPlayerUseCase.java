@@ -18,8 +18,8 @@ public class GetPlayerUseCase {
   @Autowired
   private PlayerRepository repository;
 
-  public List<PlayerDTO> execute() {
-    List<PlayerEntity> rawPlayers = repository.findAll();
+  public List<PlayerDTO> execute(int limit, int skip) {
+    List<PlayerEntity> rawPlayers = repository.findAll(limit, skip);
     List<PlayerDTO> playersList = new ArrayList<>();
 
     rawPlayers.stream().forEach(p -> {
@@ -32,5 +32,15 @@ public class GetPlayerUseCase {
   public PlayerDTO byId(UUID id) throws Exception {
     Optional<PlayerEntity> player = repository.findById(id);
     return PlayerDTO.map(player.get());
+  }
+
+  public List<PlayerDTO> byName(String name) {
+    List<PlayerEntity> foundPlayers = repository.findByName(name);
+    return PlayerDTO.mapList(foundPlayers);
+  }
+
+  public List<PlayerDTO> byTeam(String name) {
+    List<PlayerEntity> foundPlayers = repository.findByTeam(name);
+    return PlayerDTO.mapList(foundPlayers);
   }
 }

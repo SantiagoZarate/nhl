@@ -1,5 +1,7 @@
 package com.santiago.NHL.modules.player.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.match.dtos.TeamDTO;
@@ -38,5 +40,15 @@ public class PlayerDTO {
         .build();
 
     return newPlayer;
+  }
+
+  public static List<PlayerDTO> mapList(List<PlayerEntity> players) {
+    List<PlayerDTO> playersDTO = new ArrayList<>();
+
+    players.stream().forEach(p -> {
+      playersDTO.add(map(p));
+    });
+
+    return playersDTO;
   }
 }

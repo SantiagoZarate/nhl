@@ -51,7 +51,7 @@ public class PlayerControllerTest {
     players.add(p1);
     players.add(p2);
 
-    Mockito.when(service.execute()).thenReturn(players);
+    Mockito.when(service.execute(10, 0)).thenReturn(players);
 
     mockMvc
         .perform(MockMvcRequestBuilders.get("/api/v1/players"))
