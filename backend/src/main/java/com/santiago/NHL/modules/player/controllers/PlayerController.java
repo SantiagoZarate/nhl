@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santiago.NHL.modules.match.dtos.ResponseDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
+import com.santiago.NHL.modules.player.entities.PlayerEntity;
+import com.santiago.NHL.modules.player.useCases.CreatePlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.GetPlayerUseCase;
 
 @RestController
@@ -21,6 +24,9 @@ public class PlayerController {
 
   @Autowired
   private GetPlayerUseCase getPlayerUseCase;
+
+  @Autowired
+  private CreatePlayerUseCase createPlayerUseCase;
 
   @GetMapping("")
   public ResponseEntity<ResponseDTO<PlayerDTO>> getAllPlayers(
@@ -49,6 +55,12 @@ public class PlayerController {
   public ResponseEntity<?> getPlayerByTeam(@PathVariable String team) throws Exception {
     List<PlayerDTO> results = getPlayerUseCase.byTeam(team);
     return ResponseEntity.ok(results);
+  }
+
+  @PostMapping("")
+  public ResponseEntity<?> postPlayer(@RequestParam String name) {
+    PlayerEntity result = createPlayerUseCase.execute(name);
+    return ResponseEntity.ok(result);
   }
 
 }

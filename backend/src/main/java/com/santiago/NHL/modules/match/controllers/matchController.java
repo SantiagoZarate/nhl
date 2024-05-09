@@ -3,23 +3,23 @@ package com.santiago.NHL.modules.match.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santiago.NHL.modules.match.dtos.MatchDTO;
 import com.santiago.NHL.modules.match.useCases.GetMatchesByMVPPlayerUseCase;
 import com.santiago.NHL.modules.match.useCases.GetMatchesUseCase;
-import com.santiago.NHL.modules.match.useCases.MatchesWonByTeamUseCase;
+import com.santiago.NHL.modules.match.useCases.MatchsWonByTeamUseCase;
 
 @RestController
 @RequestMapping("/api/v1/matchs")
 public class MatchController {
 
   @Autowired
-  private MatchesWonByTeamUseCase matchesWonByTeamUseCase;
+  private MatchsWonByTeamUseCase matchesWonByTeamUseCase;
 
   @Autowired
   private GetMatchesUseCase getMatchesUseCase;
@@ -40,13 +40,10 @@ public class MatchController {
     return results;
   }
 
-  @GetMapping("/{team}")
-  public List<MatchDTO> getMatchesByTeam(@PathVariable String team,
-      @RequestParam(name = "limit", required = false, defaultValue = "10") String limit) {
-    String teamLowercase = team.toLowerCase();
-    var results = getMatchesUseCase.byTeam(teamLowercase, Integer.parseInt(limit));
-
-    return results;
+  @GetMapping("/{id}")
+  public ResponseEntity<MatchDTO> getMatch(@PathVariable String id) {
+    MatchDTO results = getMatchesUseCase.byId(id);
+    return ResponseEntity.ok(results);
   }
 
   @GetMapping("/mvp/{id}")

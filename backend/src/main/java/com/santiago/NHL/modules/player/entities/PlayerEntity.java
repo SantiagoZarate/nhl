@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.santiago.NHL.modules.match.entities.TeamEntity;
 
+import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +24,11 @@ import lombok.NoArgsConstructor;
 @Entity(name = "player")
 public class PlayerEntity {
 
+  public PlayerEntity(UUID id, String name) {
+    this.id = id;
+    this.name = name;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
@@ -30,6 +36,7 @@ public class PlayerEntity {
   @Column(length = 150)
   private String name;
 
+  @Nullable
   @ManyToOne
   @JoinColumn(name = "team", referencedColumnName = "name")
   private TeamEntity teamEntity;

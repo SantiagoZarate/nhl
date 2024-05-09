@@ -40,7 +40,7 @@ public class PlayerServiceTest {
   @Test
   public void getPlayerById() throws Exception {
     UUID id = new UUID(0, 0);
-    TeamEntity team = TeamEntity.builder().name("New Jersey").build();
+    TeamEntity team = TeamEntity.builder().name("New Jersey").captain(new PlayerEntity()).build();
     Optional<PlayerEntity> newPlayer = Optional.of(PlayerEntity
         .builder()
         .id(id)
@@ -52,7 +52,7 @@ public class PlayerServiceTest {
 
     PlayerDTO foundPlayer = useCase.byId(id);
     assertNotNull(foundPlayer);
-    assertEquals(foundPlayer.getName(), id);
+    assertEquals(foundPlayer.getId(), id);
     assertEquals(foundPlayer.getName(), "Santiago");
   }
 }
