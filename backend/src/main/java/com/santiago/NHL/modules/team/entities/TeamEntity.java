@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.match.dtos.TeamDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
@@ -49,6 +50,7 @@ public class TeamEntity {
   @JoinColumn(name = "captain_id", referencedColumnName = "id", nullable = true)
   private PlayerEntity captain;
 
+  @JsonIgnore
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "teamEntity")
   private List<PlayerEntity> players;
 

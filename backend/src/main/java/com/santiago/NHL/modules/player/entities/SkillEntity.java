@@ -24,7 +24,7 @@ public class SkillEntity {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
-  private int season;
+  private String season;
 
   private int defense;
 

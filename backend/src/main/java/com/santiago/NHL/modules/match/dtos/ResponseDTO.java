@@ -16,4 +16,5 @@ public class ResponseDTO<T> {
   private List<T> results;
   private String skip;
   private String limit;
+  private int total;
 }

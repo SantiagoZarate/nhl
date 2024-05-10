@@ -1,10 +1,9 @@
 package com.santiago.NHL.modules.player.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.santiago.NHL.modules.team.entities.TeamEntity;
@@ -36,14 +35,9 @@ public class PlayerEntity {
     this.name = name;
   }
 
-  // @Id
-  // @GeneratedValue(strategy = GenerationType.AUTO)
-  // @Column(name = "id")
-
   @Id
-  @GeneratedValue(generator = "uuid2")
-  @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-  @Column(name = "id", columnDefinition = "VARCHAR(255)")
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
   private UUID id;
 
   @Column(length = 150)
@@ -53,7 +47,7 @@ public class PlayerEntity {
   private int skill_level;
 
   @DateTimeFormat
-  private LocalDateTime born_date;
+  private LocalDate birth_date;
 
   private String position;
 
