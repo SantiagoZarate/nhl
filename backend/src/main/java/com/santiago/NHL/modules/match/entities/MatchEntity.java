@@ -32,16 +32,15 @@ public class MatchEntity {
 
   private String guest_team;
 
-  @ManyToOne
-  @JoinColumn(name = "mvp_player_id")
-  private PlayerEntity playerEntity;
+  private int host_team_score;
 
-  private String score;
-
-  @Column(nullable = true)
-  private String winner;
+  private int guest_team_score;
 
   @Column(columnDefinition = "DATE")
   private LocalDate date;
+
+  @ManyToOne
+  @JoinColumn(name = "mvp_player_id")
+  private PlayerEntity playerEntity;
 
 }

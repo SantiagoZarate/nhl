@@ -1,12 +1,15 @@
-package com.santiago.NHL.modules.match.entities;
+package com.santiago.NHL.modules.team.entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.santiago.NHL.modules.match.dtos.TeamDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
-import jakarta.annotation.Nullable;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -34,14 +37,19 @@ public class TeamEntity {
   private String name;
 
   @Column(length = 150)
+  private String city;
+
+  @DateTimeFormat
+  private LocalDateTime creaction;
+
+  @Column(length = 150)
   private String logo_url;
 
-  @OneToOne
-  @JoinColumn(name = "captain_id", referencedColumnName = "id")
-  @Nullable
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "captain_id", referencedColumnName = "id", nullable = true)
   private PlayerEntity captain;
 
-  @OneToMany(mappedBy = "teamEntity")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "teamEntity")
   private List<PlayerEntity> players;
 
   public static TeamDTO map(TeamEntity rawTeam) {

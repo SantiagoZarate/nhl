@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.match.dtos.TeamDTO;
-import com.santiago.NHL.modules.match.entities.TeamEntity;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
+import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

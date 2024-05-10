@@ -15,10 +15,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.santiago.NHL.modules.match.entities.TeamEntity;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 import com.santiago.NHL.modules.player.repositories.PlayerRepository;
+import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 // @SpringBootTest
 @ExtendWith(MockitoExtension.class)

@@ -18,21 +18,21 @@ import lombok.NoArgsConstructor;
 public class MatchDTO {
 
   private UUID id;
-  private String guest_team;
-  private String home_team;
   private String mvp_player;
-  private String winner;
-  private String score;
+  private String host_team;
+  private String guest_team;
+  private int host_team_score;
+  private int guest_team_score;
 
   public static MatchDTO map(MatchEntity m) {
     return MatchDTO
         .builder()
         .id(m.getId())
         .guest_team(m.getGuest_team())
-        .home_team(m.getHost_team())
+        .host_team(m.getHost_team())
         .mvp_player(m.getPlayerEntity().getName())
-        .score(m.getScore())
-        .winner(m.getWinner())
+        .guest_team_score(m.getGuest_team_score())
+        .host_team_score(m.getHost_team_score())
         .build();
   }
 
