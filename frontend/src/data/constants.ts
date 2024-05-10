@@ -5,21 +5,25 @@ export const players: Player[] = [
     id: crypto.randomUUID(),
     name: "Jhon Doe",
     team: "Buffalo",
+    points: 123,
   },
   {
     id: crypto.randomUUID(),
     name: "Jhon Doe",
     team: "Buffalo",
+    points: 79,
   },
   {
     id: crypto.randomUUID(),
     name: "Jhon Doe",
     team: "Buffalo",
+    points: 77,
   },
   {
     id: crypto.randomUUID(),
     name: "Jhon Doe",
     team: "Buffalo",
+    points: 67,
   },
 ];
 
@@ -41,6 +45,12 @@ export const teams: Team[] = [
       "https://loodibee.com/wp-content/uploads/nhl-carolina-hurricanes-logo-300x300.png",
     captain: "Jhon Doe",
     name: "Carolina Hurricanes",
+  },
+  {
+    image_url:
+      "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
+    captain: "Jhon Doe",
+    name: "Colorado Avalanche",
   },
   {
     image_url:

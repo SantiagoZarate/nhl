@@ -8,6 +8,7 @@ export interface Player {
   id: string;
   name: string;
   team: string;
+  points: number;
 }
 
 export interface Match {
