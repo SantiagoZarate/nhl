@@ -11,11 +11,11 @@ import com.santiago.NHL.modules.player.entities.SkillEntity;
 import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -23,7 +23,7 @@ public class PlayerDTO {
 
   private UUID id;
   private String name;
-  private TeamDTO team;
+
   private String nationality;
   private String position;
   private int skill_level;
@@ -39,7 +39,6 @@ public class PlayerDTO {
         .nationality(p.getNationality())
         .skill_level(p.getSkill_level())
         .position(p.getPosition())
-        .team(extractTeam(p.getTeamEntity()))
         .skills(extractSkill(p.getSkills()))
         .injuries(extractInjuries(p.getInjurys()))
         .build();
@@ -52,16 +51,8 @@ public class PlayerDTO {
       return null;
     }
 
-    SkillEntity currentSkill = skills.get(0);
-    SkillDTO skillsDTO = SkillDTO
-        .builder()
-        .physique(currentSkill.getDefense())
-        .dribble(currentSkill.getDribble())
-        .defense(currentSkill.getDefense())
-        .vision(currentSkill.getVision())
-        .pace(currentSkill.getPace())
-        .build();
-    return skillsDTO;
+    SkillEntity lastSeasonSkill = skills.get(0);
+    return SkillDTO.map(lastSeasonSkill);
   }
 
   public static List<InjuryDTO> extractInjuries(List<InjuryEntity> rawInjuries) {

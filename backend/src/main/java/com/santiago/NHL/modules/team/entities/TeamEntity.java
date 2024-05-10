@@ -1,13 +1,11 @@
 package com.santiago.NHL.modules.team.entities;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.santiago.NHL.modules.match.dtos.TeamDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import jakarta.persistence.CascadeType;
@@ -41,7 +39,7 @@ public class TeamEntity {
   private String city;
 
   @DateTimeFormat
-  private LocalDateTime creaction;
+  private LocalDate creation;
 
   @Column(length = 150)
   private String logo_url;
@@ -54,18 +52,4 @@ public class TeamEntity {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "teamEntity")
   private List<PlayerEntity> players;
 
-  public static TeamDTO map(TeamEntity rawTeam) {
-    TeamDTO mappedTeam = new TeamDTO(rawTeam.getName(), rawTeam.getLogo_url(), rawTeam.getCaptain().getName());
-    return mappedTeam;
-  }
-
-  public static List<TeamDTO> mapList(List<TeamEntity> rawTeams) {
-    List<TeamDTO> teams = new ArrayList<>();
-
-    rawTeams.stream().forEach(t -> {
-      teams.add(map(t));
-    });
-
-    return teams;
-  }
 }

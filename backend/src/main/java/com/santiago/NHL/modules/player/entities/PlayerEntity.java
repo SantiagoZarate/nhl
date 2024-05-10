@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import io.micrometer.common.lang.Nullable;
@@ -53,6 +54,7 @@ public class PlayerEntity {
 
   private String nationality;
 
+  @JsonIgnore
   @Nullable
   @ManyToOne
   @JoinColumn(name = "team_name", referencedColumnName = "name")

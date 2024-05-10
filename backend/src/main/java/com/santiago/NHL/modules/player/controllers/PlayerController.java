@@ -19,6 +19,7 @@ import com.santiago.NHL.modules.player.dtos.CreatePlayerDTO;
 import com.santiago.NHL.modules.player.dtos.CreateSkillsDTO;
 import com.santiago.NHL.modules.player.dtos.InjuryDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
+import com.santiago.NHL.modules.player.dtos.PlayerWithTeamDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 import com.santiago.NHL.modules.player.useCases.CreateInjuryForPlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.CreatePlayerUseCase;
@@ -36,18 +37,18 @@ public class PlayerController {
   private CreatePlayerUseCase createPlayerUseCase;
 
   @Autowired
-  private CreateSkillsForPlayerUseCase createSkillsForPlayer;
+  private CreateSkillsForPlayerUseCase createSkillsForPlayerUseCase;
 
   @Autowired
   private CreateInjuryForPlayerUseCase createInjuryUseCase;
 
   @GetMapping("")
-  public ResponseEntity<ResponseDTO<PlayerDTO>> getAllPlayers(
+  public ResponseEntity<ResponseDTO<PlayerWithTeamDTO>> getAllPlayers(
       @RequestParam(name = "limit", defaultValue = "10") String limit,
       @RequestParam(name = "skip", defaultValue = "0") String skip) {
 
-    List<PlayerDTO> results = getPlayerUseCase.execute(Integer.parseInt(limit), Integer.parseInt(skip));
-    ResponseDTO<PlayerDTO> players = new ResponseDTO<>(results, skip, limit, results.size());
+    List<PlayerWithTeamDTO> results = getPlayerUseCase.execute(Integer.parseInt(limit), Integer.parseInt(skip));
+    ResponseDTO<PlayerWithTeamDTO> players = new ResponseDTO<>(results, skip, limit, results.size());
     return ResponseEntity.ok(players);
   }
 
@@ -78,7 +79,7 @@ public class PlayerController {
 
   @PostMapping("/{id}/skill")
   public ResponseEntity<?> postSkills(@PathVariable String id, @RequestBody CreateSkillsDTO dto) {
-    PlayerDTO results = createSkillsForPlayer.execute(id, dto);
+    PlayerDTO results = createSkillsForPlayerUseCase.execute(id, dto);
     return ResponseEntity.ok(results);
   }
 

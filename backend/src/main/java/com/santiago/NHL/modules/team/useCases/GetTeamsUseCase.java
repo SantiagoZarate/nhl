@@ -18,12 +18,12 @@ public class GetTeamsUseCase {
 
   public List<TeamDTO> execute() {
     List<TeamEntity> teams = repository.findAll();
-    return TeamEntity.mapList(teams);
+    return TeamDTO.mapList(teams);
   }
 
   public TeamDTO byName(String name) {
     String capitalizeName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     Optional<TeamEntity> team = repository.findById(capitalizeName);
-    return TeamEntity.map(team.get());
+    return TeamDTO.map(team.get());
   }
 }
