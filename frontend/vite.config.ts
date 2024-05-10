@@ -7,10 +7,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src/*"),
-      "@ui": path.resolve(__dirname, "src/components/*"),
-      "@data": path.resolve(__dirname, "src/data/*"),
-      "@util": path.resolve(__dirname, "src/utils/*"),
+      "@": path.resolve(__dirname, "src"),
+      "@ui": path.resolve(__dirname, "src/components"),
+      "@data": path.resolve(__dirname, "src/data"),
+      "@util": path.resolve(__dirname, "src/utils"),
       "@page": path.resolve(__dirname, "src/pages/index.ts"),
     },
   },
