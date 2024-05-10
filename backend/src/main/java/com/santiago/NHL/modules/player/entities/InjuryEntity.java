@@ -1,6 +1,6 @@
 package com.santiago.NHL.modules.player.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -25,9 +25,11 @@ public class InjuryEntity {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
-  private LocalDateTime start;
+  private String description;
 
-  private LocalDateTime finish;
+  private LocalDate start;
+
+  private LocalDate finish;
 
   @ManyToOne
   @JoinColumn(name = "player_id", referencedColumnName = "id")

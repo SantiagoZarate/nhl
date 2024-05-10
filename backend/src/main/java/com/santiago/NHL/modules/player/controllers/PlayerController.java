@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santiago.NHL.modules.match.dtos.ResponseDTO;
+import com.santiago.NHL.modules.player.dtos.CreateInjuryDTO;
 import com.santiago.NHL.modules.player.dtos.CreatePlayerDTO;
 import com.santiago.NHL.modules.player.dtos.CreateSkillsDTO;
+import com.santiago.NHL.modules.player.dtos.InjuryDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
+import com.santiago.NHL.modules.player.useCases.CreateInjuryForPlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.CreatePlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.CreateSkillsForPlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.GetPlayerUseCase;
@@ -34,6 +37,9 @@ public class PlayerController {
 
   @Autowired
   private CreateSkillsForPlayerUseCase createSkillsForPlayer;
+
+  @Autowired
+  private CreateInjuryForPlayerUseCase createInjuryUseCase;
 
   @GetMapping("")
   public ResponseEntity<ResponseDTO<PlayerDTO>> getAllPlayers(
@@ -73,6 +79,12 @@ public class PlayerController {
   @PostMapping("/{id}/skill")
   public ResponseEntity<?> postSkills(@PathVariable String id, @RequestBody CreateSkillsDTO dto) {
     PlayerDTO results = createSkillsForPlayer.execute(id, dto);
+    return ResponseEntity.ok(results);
+  }
+
+  @PostMapping("/{id}/injuries")
+  public ResponseEntity<?> postInjury(@PathVariable String id, @RequestBody CreateInjuryDTO dto) {
+    InjuryDTO results = createInjuryUseCase.execute(id, dto);
     return ResponseEntity.ok(results);
   }
 
