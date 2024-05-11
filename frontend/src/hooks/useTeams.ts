@@ -1,3 +1,4 @@
+import { getAllTeams } from "@/api/teams/getAllTeams";
 import { Team } from "@/types";
 import { useEffect, useState } from "react";
 
@@ -6,9 +7,8 @@ export function useTeams() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5173/src/data/teams.json")
-      .then(res => res.json())
-      .then((res: Team[]) => setTeams(res))
+    getAllTeams()
+      .then(res => setTeams(res))
   }, [])
 
   // Delay to see Loader
