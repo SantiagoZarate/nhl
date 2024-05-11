@@ -7,6 +7,8 @@ export default function App() {
     <Routes>
       <Route element={<AppLayout />}>
         <Route index path="/" element={<HomePage />} />
+        <Route index path="/:team" element={<HomePage />} />
+        <Route index path="/:player" element={<HomePage />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header className="absolute w-full">
+    <header className="absolute w-full px-8">
       <div className="max-w-screen-lg py-12 flex justify-between items-center mx-auto">
         <nav className="flex gap-4">
           {links.map((link) => (
