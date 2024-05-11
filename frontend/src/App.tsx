@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import { AppLayout } from "./layouts/AppLayout";
-import { HomePage } from "@page";
+import { HomePage, TeamPage } from "@page";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
   return (
     <Routes>
+      <Route path="*" element={<NotFoundPage />} />
       <Route element={<AppLayout />}>
-        <Route index path="/" element={<HomePage />} />
-        <Route index path="/:team" element={<HomePage />} />
-        <Route index path="/:player" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/team/:teamName" element={<TeamPage />} />
+        <Route path="/player/:player" element={<HomePage />} />
       </Route>
     </Routes>
   );
