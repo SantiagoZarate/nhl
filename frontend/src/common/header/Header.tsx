@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { links } from "@data/constants";
 import { Link } from "react-router-dom";
 
@@ -12,7 +13,11 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div>login</div>
+        <div>
+          <Button variant={"outline"}>
+            login
+          </Button>
+        </div>
       </div>
     </header>
   );
