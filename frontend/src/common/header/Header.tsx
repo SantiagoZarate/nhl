@@ -7,7 +7,7 @@ export function Header() {
       <div className="max-w-screen-lg py-12 flex justify-between items-center mx-auto">
         <nav className="flex gap-4">
           {links.map((link) => (
-            <Link className="uppercase text-sm" to={link.path}>
+            <Link key={link.path} className="uppercase text-sm" to={link.path}>
               {link.value}
             </Link>
           ))}

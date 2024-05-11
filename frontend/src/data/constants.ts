@@ -56,7 +56,7 @@ export const teams: Team[] = [
     image_url:
       "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
     captain: "Jhon Doe",
-    name: "Colorado Avalanche",
+    name: "Colorado Locura",
   },
 ];
 
