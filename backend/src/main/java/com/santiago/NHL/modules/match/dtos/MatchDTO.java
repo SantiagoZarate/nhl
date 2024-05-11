@@ -28,8 +28,8 @@ public class MatchDTO {
     return MatchDTO
         .builder()
         .id(m.getId())
-        .guest_team(m.getGuest_team())
-        .host_team(m.getHost_team())
+        .guest_team(m.getGuestTeam().getName())
+        .host_team(m.getHostTeam().getName())
         .mvp_player(m.getPlayerEntity().getName())
         .guest_team_score(m.getGuest_team_score())
         .host_team_score(m.getHost_team_score())

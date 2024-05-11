@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.santiago.NHL.modules.match.entities.MatchEntity;
 import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import io.micrometer.common.lang.Nullable;
@@ -65,4 +66,7 @@ public class PlayerEntity {
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "playerEntity")
   private List<InjuryEntity> injurys;
+
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "playerEntity")
+  private List<MatchEntity> mvps;
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
+import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,11 +27,16 @@ public class MatchEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
+  @Column(name = "id")
   private UUID id;
 
-  private String host_team;
+  @ManyToOne
+  @JoinColumn(name = "host_team_name", referencedColumnName = "name")
+  private TeamEntity hostTeam;
 
-  private String guest_team;
+  @ManyToOne
+  @JoinColumn(name = "guest_team_name", referencedColumnName = "name")
+  private TeamEntity guestTeam;
 
   private int host_team_score;
 
@@ -40,7 +46,7 @@ public class MatchEntity {
   private LocalDate date;
 
   @ManyToOne
-  @JoinColumn(name = "mvp_player_id")
+  @JoinColumn(name = "mvp_player_id", referencedColumnName = "id")
   private PlayerEntity playerEntity;
 
 }
