@@ -1,6 +1,6 @@
 import { ThreeBlobsLoader } from "@/components/loaders/ThreeBlobsLoader";
-import { teams } from "@/data/constants";
-import { useEffect, useRef, useState } from "react";
+import { useTeams } from "@/hooks/useTeams";
+import { useRef } from "react";
 import { LeaderboardList } from "./LeaderboardList";
 
 export type CardRefType = HTMLAnchorElement & {
@@ -10,14 +10,7 @@ export type CardRefType = HTMLAnchorElement & {
 
 export function Leaderboard() {
   const cardsRef = useRef<CardRefType[] | null>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Delay to see Loader
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-  }, [])
+  const { isLoading, firstFiveTeams } = useTeams();
 
   const handleMouseHover = () => {
     if (cardsRef.current === null) {
@@ -54,7 +47,7 @@ export function Leaderboard() {
       <h1 className="">Leaderboard</h1>
       {isLoading
         ? <ThreeBlobsLoader />
-        : <LeaderboardList cardsRef={cardsRef} teams={teams} />
+        : <LeaderboardList cardsRef={cardsRef} teams={firstFiveTeams} />
       }
     </article>
   )

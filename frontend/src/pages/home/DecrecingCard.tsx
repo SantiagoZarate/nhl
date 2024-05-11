@@ -9,7 +9,7 @@ interface Props extends PropsWithChildren {
 export const FowardDecrecingCard = forwardRef<HTMLAnchorElement, Props>(function DecrecingCard({ children, multiplier, path }: Props, ref) {
   const positionYmultiplier = multiplier * 6 * multiplier;
   const scaleMultiplier = 100 - multiplier * 4;
-  const zIndexMultiplier = 5 - multiplier;
+  const zIndexMultiplier = 50 - multiplier;
 
   return (
     <Link to={`/team/` + path}
