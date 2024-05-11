@@ -1,0 +1,57 @@
+[
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-anaheim-ducks-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Anaheim Ducks"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-boston-bruins-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Boston Bruins"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-carolina-hurricanes-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Carolina Hurricanes"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Colorado Avalanche"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Colorado Locura"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-buffalo-sabres-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Buffalo Sabres"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-columbus-blue-jackets-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Columbus Blue Jackets"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-detroit-red-wings-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Detroit Red Wings"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-new-jersey-devils-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "New Jersey Devils"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-new-york-islanders-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "New York Islanders"
+  },
+  {
+    "image_url": "https://loodibee.com/wp-content/uploads/nhl-florida-panthers-logo-300x300.png",
+    "captain": "Jhon Doe",
+    "name": "Florida Panthers"
+  }
+]

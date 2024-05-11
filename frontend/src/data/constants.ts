@@ -27,39 +27,6 @@ export const players: Player[] = [
   },
 ];
 
-export const teams: Team[] = [
-  {
-    image_url:
-      "https://loodibee.com/wp-content/uploads/nhl-anaheim-ducks-logo-300x300.png",
-    captain: "Jhon Doe",
-    name: "Anaheim Ducks",
-  },
-  {
-    image_url:
-      "https://loodibee.com/wp-content/uploads/nhl-boston-bruins-logo-300x300.png",
-    captain: "Jhon Doe",
-    name: "Boston Bruins",
-  },
-  {
-    image_url:
-      "https://loodibee.com/wp-content/uploads/nhl-carolina-hurricanes-logo-300x300.png",
-    captain: "Jhon Doe",
-    name: "Carolina Hurricanes",
-  },
-  {
-    image_url:
-      "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
-    captain: "Jhon Doe",
-    name: "Colorado Avalanche",
-  },
-  {
-    image_url:
-      "https://loodibee.com/wp-content/uploads/nhl-colorado-avalanche-logo-300x300.png",
-    captain: "Jhon Doe",
-    name: "Colorado Locura",
-  },
-];
-
 export const links = [
   {
     path: "/",
