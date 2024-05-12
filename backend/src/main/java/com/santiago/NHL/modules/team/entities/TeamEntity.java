@@ -59,4 +59,6 @@ public class TeamEntity {
   @OneToMany(mappedBy = "guestTeam")
   private List<MatchEntity> guestMatches;
 
+  @OneToMany(mappedBy = "teamEntity")
+  private List<CoachesEntity> coachs;
 }

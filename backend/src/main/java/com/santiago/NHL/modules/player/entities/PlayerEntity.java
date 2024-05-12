@@ -69,4 +69,8 @@ public class PlayerEntity {
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "playerEntity")
   private List<MatchEntity> mvps;
+
+  @OneToMany(mappedBy = "playerEntity")
+  private List<PlayerMatchEntity> matches;
+
 }

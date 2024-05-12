@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.team.entities;
+package com.santiago.NHL.modules.player.entities;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -15,14 +15,11 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @Data
 @Embeddable
-public class CoachTeamKey implements Serializable {
+public class PlayerMatchKey implements Serializable {
 
-  @Column(name = "coach_id")
-  private UUID coachID;
+  @Column(name = "match_id")
+  private UUID matchID;
 
-  @Column(name = "team_name")
-  private String teamName;
-
-  @Column(name = "season")
-  private String season;
+  @Column(name = "player_id")
+  private UUID playerID;
 }
