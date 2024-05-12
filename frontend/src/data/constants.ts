@@ -1,6 +1,6 @@
-import { Player, Team } from "@/types";
+import { Player } from "@/types";
 
-export const players: Player[] = [
+export const topScorerPlayers: Player[] = [
   {
     id: crypto.randomUUID(),
     name: "Jhon Doe",

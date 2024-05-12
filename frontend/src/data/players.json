@@ -1,0 +1,155 @@
+[
+  {
+    "id": "18d78523-2493-4ac5-add7-4a95a6f33eb7",
+    "name": "Playboi Carti",
+    "image_url": "http://images.com/playboi-carti-mugshot.p",
+    "nationality": "United Stated",
+    "position": "Attacker",
+    "skill_level": 5,
+    "skills": {
+      "defense": 23,
+      "pace": 80,
+      "physique": 23,
+      "dribble": 91,
+      "vision": 0
+    },
+    "injuries": [
+      {
+        "description": "dislocamiento de hombro",
+        "start": "2021-01-12",
+        "finish": "2021-01-15"
+      }
+    ],
+    "team": {
+      "name": "New Jersey",
+      "city": "Orlando",
+      "image_url": "http://images.com/new-jersey-imag"
+    }
+  },
+  {
+    "id": "18d78523-2493-4ac5-add7-4a95a6f33eb2",
+    "name": "Connor McDavid",
+    "image_url": "https://example.com/player-image",
+    "nationality": "Canada",
+    "position": "Center",
+    "skill_level": 4,
+    "skills": {
+      "defense": 85,
+      "pace": 95,
+      "physique": 80,
+      "dribble": 90,
+      "vision": 95
+    },
+    "injuries": [],
+    "team": {
+      "name": "Edmonton Oilers",
+      "city": "Edmonton",
+      "image_url": "https://example.com/team-image"
+    }
+  },
+  {
+    "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "Alex Ovechkin",
+    "image_url": "https://example.com/ovechkin-image",
+    "nationality": "Russia",
+    "position": "Left Wing",
+    "skill_level": 5,
+    "skills": {
+      "defense": 75,
+      "pace": 85,
+      "physique": 95,
+      "dribble": 80,
+      "vision": 90
+    },
+    "injuries": [],
+    "team": {
+      "name": "Washington Capitals",
+      "city": "Washington, D.C.",
+      "image_url": "https://example.com/capitals-image"
+    }
+  },
+  {
+    "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7",
+    "name": "Sidney Crosby",
+    "image_url": "https://example.com/crosby-image",
+    "nationality": "Canada",
+    "position": "Center",
+    "skill_level": 5,
+    "skills": {
+      "defense": 85,
+      "pace": 90,
+      "physique": 85,
+      "dribble": 90,
+      "vision": 95
+    },
+    "injuries": [],
+    "team": {
+      "name": "Pittsburgh Penguins",
+      "city": "Pittsburgh",
+      "image_url": "https://example.com/penguins-image"
+    }
+  },
+  {
+    "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8",
+    "name": "Auston Matthews",
+    "image_url": "https://example.com/matthews-image",
+    "nationality": "Canada",
+    "position": "Center",
+    "skill_level": 4,
+    "skills": {
+      "defense": 80,
+      "pace": 85,
+      "physique": 80,
+      "dribble": 85,
+      "vision": 90
+    },
+    "injuries": [],
+    "team": {
+      "name": "Toronto Maple Leafs",
+      "city": "Toronto",
+      "image_url": "https://example.com/mapleleafs-image"
+    }
+  },
+  {
+    "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9",
+    "name": "Nathan MacKinnon",
+    "image_url": "https://example.com/mackinnon-image",
+    "nationality": "Canada",
+    "position": "Center",
+    "skill_level": 5,
+    "skills": {
+      "defense": 85,
+      "pace": 95,
+      "physique": 85,
+      "dribble": 90,
+      "vision": 95
+    },
+    "injuries": [],
+    "team": {
+      "name": "Colorado Avalanche",
+      "city": "Denver",
+      "image_url": "https://example.com/avalanche-image"
+    }
+  },
+  {
+    "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0",
+    "name": "Connor Hellebuyck",
+    "image_url": "https://example.com/hellebuyck-image",
+    "nationality": "United States",
+    "position": "Goalie",
+    "skill_level": 4,
+    "skills": {
+      "defense": 90,
+      "pace": 85,
+      "physique": 95,
+      "dribble": 70,
+      "vision": 90
+    },
+    "injuries": [],
+    "team": {
+      "name": "Winnipeg Jets",
+      "city": "Winnipeg",
+      "image_url": "https://example.com/jets-image"
+    }
+  }
+]
