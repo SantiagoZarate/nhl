@@ -1,5 +1,5 @@
 import { getAllTeams } from "@/api/teams/getAllTeams";
-import { Team } from "@/types";
+import { Team } from "@/types/types";
 import { useEffect, useState } from "react";
 
 export function useTeams() {

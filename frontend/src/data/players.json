@@ -5,6 +5,7 @@
     "image_url": "http://images.com/playboi-carti-mugshot.p",
     "nationality": "United Stated",
     "position": "Attacker",
+    "points": 55,
     "skill_level": 5,
     "skills": {
       "defense": 23,
@@ -32,6 +33,7 @@
     "image_url": "https://example.com/player-image",
     "nationality": "Canada",
     "position": "Center",
+    "points": 65,
     "skill_level": 4,
     "skills": {
       "defense": 85,
@@ -53,6 +55,7 @@
     "image_url": "https://example.com/ovechkin-image",
     "nationality": "Russia",
     "position": "Left Wing",
+    "points": 75,
     "skill_level": 5,
     "skills": {
       "defense": 75,
@@ -74,6 +77,7 @@
     "image_url": "https://example.com/crosby-image",
     "nationality": "Canada",
     "position": "Center",
+    "points": 95,
     "skill_level": 5,
     "skills": {
       "defense": 85,
@@ -95,6 +99,7 @@
     "image_url": "https://example.com/matthews-image",
     "nationality": "Canada",
     "position": "Center",
+    "points": 25,
     "skill_level": 4,
     "skills": {
       "defense": 80,
@@ -116,6 +121,7 @@
     "image_url": "https://example.com/mackinnon-image",
     "nationality": "Canada",
     "position": "Center",
+    "points": 44,
     "skill_level": 5,
     "skills": {
       "defense": 85,
@@ -137,6 +143,7 @@
     "image_url": "https://example.com/hellebuyck-image",
     "nationality": "United States",
     "position": "Goalie",
+    "points": 5,
     "skill_level": 4,
     "skills": {
       "defense": 90,

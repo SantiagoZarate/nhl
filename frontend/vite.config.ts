@@ -12,6 +12,7 @@ export default defineConfig({
       "@data": path.resolve(__dirname, "src/data"),
       "@util": path.resolve(__dirname, "src/utils"),
       "@page": path.resolve(__dirname, "src/pages/index.ts"),
+      "@type": path.resolve(__dirname, "src/types"),
     },
   },
 });

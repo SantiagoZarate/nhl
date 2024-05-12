@@ -25,7 +25,8 @@
       "@ui/*": ["src/components/*"],
       "@util/*": ["src/utils/*"],
       "@data/*": ["src/data/*"],
-      "@page": ["src/pages/index.ts"]
+      "@page": ["src/pages/index.ts"],
+      "@type/*": ["src/types/*"]
     }
   },
   "include": ["src"],

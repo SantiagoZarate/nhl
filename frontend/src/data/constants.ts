@@ -1,4 +1,4 @@
-import { Player } from "@/types";
+import { Player } from "@type/types";
 
 export const topScorerPlayers: Player[] = [
   {

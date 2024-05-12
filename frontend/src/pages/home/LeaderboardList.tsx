@@ -1,7 +1,7 @@
-import { Team } from "@/types";
+import { Team } from "@type/types";
 import { FowardDecrecingCard } from "./DecrecingCard";
-import { CardRefType } from "./Leaderboard";
 import { TeamCard } from "./TeamCard";
+import { CardRefType } from "@/hooks/useCardHoverAnimation";
 
 interface Props {
   teams: Team[];

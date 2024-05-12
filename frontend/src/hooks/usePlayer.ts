@@ -1,5 +1,5 @@
 import { getPlayerByID } from "@/api/players/getPlayerByID";
-import { type Playerr } from "@/types";
+import { type Playerr } from "@type/player";
 import { useEffect, useState } from "react";
 
 export function usePlayer(playerID: string) {
