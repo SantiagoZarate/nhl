@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santiago.NHL.modules.match.dtos.ResponseDTO;
+import com.santiago.NHL.modules.match.useCases.GetMatchesByPlayerUseCase;
 import com.santiago.NHL.modules.player.dtos.CreateInjuryDTO;
 import com.santiago.NHL.modules.player.dtos.CreatePlayerDTO;
 import com.santiago.NHL.modules.player.dtos.CreateSkillsDTO;
@@ -21,6 +22,7 @@ import com.santiago.NHL.modules.player.dtos.InjuryDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerWithTeamDTO;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
+import com.santiago.NHL.modules.player.entities.PlayerMatchEntity;
 import com.santiago.NHL.modules.player.useCases.CreateInjuryForPlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.CreatePlayerUseCase;
 import com.santiago.NHL.modules.player.useCases.CreateSkillsForPlayerUseCase;
@@ -41,6 +43,9 @@ public class PlayerController {
 
   @Autowired
   private CreateInjuryForPlayerUseCase createInjuryUseCase;
+
+  @Autowired
+  private GetMatchesByPlayerUseCase getMatchesByPlayerUseCase;
 
   @GetMapping("")
   public ResponseEntity<ResponseDTO<PlayerWithTeamDTO>> getAllPlayers(
@@ -69,6 +74,15 @@ public class PlayerController {
   public ResponseEntity<?> getPlayerByTeam(@PathVariable String team) throws Exception {
     List<PlayerDTO> results = getPlayerUseCase.byTeam(team);
     return ResponseEntity.ok(results);
+  }
+
+  @GetMapping("/{id}/matches")
+  // public ResponseEntity<List<PlayerMatchEntity>>
+  // getMatchesByPlayer(@PathVariable String id) {
+  public void getMatchesByPlayer(@PathVariable String id) {
+    // List<PlayerMatchEntity> results =
+    getMatchesByPlayerUseCase.execute(id);
+    // return ResponseEntity.ok(results);
   }
 
   @PostMapping("")

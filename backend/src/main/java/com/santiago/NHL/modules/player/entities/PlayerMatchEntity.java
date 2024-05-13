@@ -1,5 +1,6 @@
 package com.santiago.NHL.modules.player.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.santiago.NHL.modules.match.entities.MatchEntity;
 
 import jakarta.persistence.EmbeddedId;
@@ -22,11 +23,13 @@ public class PlayerMatchEntity {
   @EmbeddedId
   private PlayerMatchKey id;
 
+  @JsonIgnore
   @ManyToOne
   @MapsId("playerID")
   @JoinColumn(name = "player_id", referencedColumnName = "id")
   private PlayerEntity playerEntity;
 
+  @JsonIgnore
   @ManyToOne
   @MapsId("matchID")
   @JoinColumn(name = "match_id", referencedColumnName = "id")

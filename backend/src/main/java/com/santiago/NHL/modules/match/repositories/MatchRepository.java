@@ -12,6 +12,9 @@ import com.santiago.NHL.modules.match.entities.MatchEntity;
 @Service
 public interface MatchRepository extends JpaRepository<MatchEntity, UUID> {
 
+  @Query(value = "SELECT m.*, pm.points FROM player_match AS pm, match AS m WHERE pm.player_id = :playerID AND pm.match_id = m.id;", nativeQuery = true)
+  List<?> findAllByPlayer(UUID playerID);
+
   @Query(value = "SELECT * FROM match m WHERE LOWER(m.winner) = :team", nativeQuery = true)
   List<MatchEntity> findAllMatchesWonByTeam(String team);
 

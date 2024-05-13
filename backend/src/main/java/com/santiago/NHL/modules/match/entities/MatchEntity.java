@@ -53,5 +53,9 @@ public class MatchEntity {
   private PlayerEntity playerEntity;
 
   @OneToMany(mappedBy = "matchEntity")
-  private List<PlayerMatchEntity> players;
+  private List<PlayerMatchEntity> host_team_players;
+
+  @OneToMany(mappedBy = "matchEntity")
+  private List<PlayerMatchEntity> guest_team_players;
+
 }
