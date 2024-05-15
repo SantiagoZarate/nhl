@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.santiago.NHL.modules.match.entities.MatchEntity;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 
 import jakarta.persistence.CascadeType;
@@ -27,10 +26,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity(name = "team")
 public class TeamEntity {
-
-  public TeamEntity(String name) {
-    this.name = name;
-  }
 
   @Id
   @Column(name = "name")
@@ -53,11 +48,11 @@ public class TeamEntity {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "teamEntity")
   private List<PlayerEntity> players;
 
-  @OneToMany(mappedBy = "hostTeam")
-  private List<MatchEntity> hostMatches;
+  // @OneToMany(mappedBy = "hostTeam")
+  // private List<GameEntity> hostMatches;
 
-  @OneToMany(mappedBy = "guestTeam")
-  private List<MatchEntity> guestMatches;
+  // @OneToMany(mappedBy = "guestTeam")
+  // private List<GameEntity> guestMatches;
 
   @OneToMany(mappedBy = "teamEntity")
   private List<CoachesEntity> coachs;

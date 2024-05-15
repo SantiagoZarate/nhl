@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.santiago.NHL.modules.match.dtos.TeamDTO;
+import com.santiago.NHL.modules.game.dtos.TeamDTO;
 import com.santiago.NHL.modules.player.entities.InjuryEntity;
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
 import com.santiago.NHL.modules.player.entities.SkillEntity;

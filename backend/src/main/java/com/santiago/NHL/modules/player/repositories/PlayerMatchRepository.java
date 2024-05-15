@@ -8,11 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.santiago.NHL.modules.player.entities.PlayerMatchEntity;
-import com.santiago.NHL.modules.player.entities.PlayerMatchKey;
+import com.santiago.NHL.modules.player.entities.PlayerStatsEntity;
 
 @Repository
-public interface PlayerMatchRepository extends JpaRepository<PlayerMatchEntity, PlayerMatchKey> {
+public interface PlayerMatchRepository extends JpaRepository<PlayerStatsEntity, UUID> {
 
   @Query(value = """
       SELECT pm.points

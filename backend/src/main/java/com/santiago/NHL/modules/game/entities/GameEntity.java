@@ -1,11 +1,9 @@
-package com.santiago.NHL.modules.match.entities;
+package com.santiago.NHL.modules.game.entities;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 import com.santiago.NHL.modules.player.entities.PlayerEntity;
-import com.santiago.NHL.modules.player.entities.PlayerMatchEntity;
 import com.santiago.NHL.modules.team.entities.TeamEntity;
 
 import jakarta.persistence.Column;
@@ -15,7 +13,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,8 +22,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "match")
-public class MatchEntity {
+@Entity(name = "game")
+public class GameEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
@@ -34,28 +31,28 @@ public class MatchEntity {
   private UUID id;
 
   @ManyToOne
-  @JoinColumn(name = "host_team_name", referencedColumnName = "name")
-  private TeamEntity hostTeam;
+  @JoinColumn(name = "local", referencedColumnName = "name")
+  private TeamEntity local;
 
   @ManyToOne
-  @JoinColumn(name = "guest_team_name", referencedColumnName = "name")
-  private TeamEntity guestTeam;
-
-  private int host_team_score;
-
-  private int guest_team_score;
-
-  @Column(columnDefinition = "DATE")
-  private LocalDate date;
+  @JoinColumn(name = "away", referencedColumnName = "name")
+  private TeamEntity away;
 
   @ManyToOne
   @JoinColumn(name = "mvp_player_id", referencedColumnName = "id")
   private PlayerEntity playerEntity;
 
-  @OneToMany(mappedBy = "matchEntity")
-  private List<PlayerMatchEntity> host_team_players;
+  @Column(columnDefinition = "DATE")
+  private LocalDate date;
 
-  @OneToMany(mappedBy = "matchEntity")
-  private List<PlayerMatchEntity> guest_team_players;
+  private int local_score;
+
+  private int away_score;
+
+  // @OneToMany(mappedBy = "matchEntity")
+  // private List<PlayerMatchEntity> host_team_players;
+
+  // @OneToMany(mappedBy = "matchEntity")
+  // private List<PlayerMatchEntity> guest_team_players;
 
 }

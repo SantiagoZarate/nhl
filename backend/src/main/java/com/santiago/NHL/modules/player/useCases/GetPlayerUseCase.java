@@ -34,7 +34,8 @@ public class GetPlayerUseCase {
   }
 
   public List<PlayerDTO> byTeam(String name) {
-    List<PlayerEntity> foundPlayers = repository.findByTeam(name);
+    String capitalizeTeamName = name.substring(0, 1).toUpperCase() + name.substring(1);
+    List<PlayerEntity> foundPlayers = repository.findByTeam(capitalizeTeamName);
     return PlayerDTO.mapList(foundPlayers);
   }
 }

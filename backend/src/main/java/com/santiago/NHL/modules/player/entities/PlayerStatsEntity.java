@@ -1,13 +1,14 @@
 package com.santiago.NHL.modules.player.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.santiago.NHL.modules.match.entities.MatchEntity;
+import java.util.UUID;
 
-import jakarta.persistence.EmbeddedId;
+import com.santiago.NHL.modules.game.entities.GameEntity;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,23 +18,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "player_match")
-public class PlayerMatchEntity {
+@Entity(name = "player_stats")
+public class PlayerStatsEntity {
 
-  @EmbeddedId
-  private PlayerMatchKey id;
+  @Id
+  @GeneratedValue()
+  private UUID id;
 
-  @JsonIgnore
   @ManyToOne
-  @MapsId("playerID")
   @JoinColumn(name = "player_id", referencedColumnName = "id")
   private PlayerEntity playerEntity;
 
-  @JsonIgnore
   @ManyToOne
-  @MapsId("matchID")
-  @JoinColumn(name = "match_id", referencedColumnName = "id")
-  private MatchEntity matchEntity;
+  @JoinColumn(name = "game_id", referencedColumnName = "id")
+  private GameEntity gameEntity;
 
   private int points;
+  private int minutes_played;
 }

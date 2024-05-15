@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.match.dtos;
+package com.santiago.NHL.modules.game.dtos;
 
 import java.util.List;
 

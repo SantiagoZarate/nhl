@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.match.controllers;
+package com.santiago.NHL.modules.game.controllers;
 
 import java.util.List;
 
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.santiago.NHL.modules.match.dtos.MatchDTO;
-import com.santiago.NHL.modules.match.useCases.GetMatchesByMVPPlayerUseCase;
-import com.santiago.NHL.modules.match.useCases.GetMatchesUseCase;
-import com.santiago.NHL.modules.match.useCases.MatchsWonByTeamUseCase;
+import com.santiago.NHL.modules.game.dtos.GameDTO;
+import com.santiago.NHL.modules.game.useCases.GetMatchesByMVPPlayerUseCase;
+import com.santiago.NHL.modules.game.useCases.GetMatchesUseCase;
+import com.santiago.NHL.modules.game.useCases.MatchsWonByTeamUseCase;
 
 @RestController
 @RequestMapping("/api/v1/matches")
-public class MatchController {
+public class GameController {
 
   @Autowired
   private MatchsWonByTeamUseCase matchesWonByTeamUseCase;
@@ -28,26 +28,26 @@ public class MatchController {
   private GetMatchesByMVPPlayerUseCase getMatchesByMVPPlayerUseCase;
 
   @GetMapping("")
-  public List<MatchDTO> getAllMatches() {
-    List<MatchDTO> results = this.getMatchesUseCase.execute();
+  public List<GameDTO> getAllMatches() {
+    List<GameDTO> results = this.getMatchesUseCase.execute();
     return results;
   }
 
   @GetMapping("/{team}/win")
-  public List<MatchDTO> getAllMatchesWin(@PathVariable String team) {
+  public List<GameDTO> getAllMatchesWin(@PathVariable String team) {
     String teamLowecase = team.toLowerCase();
     var results = matchesWonByTeamUseCase.execute(teamLowecase);
     return results;
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<MatchDTO> getMatch(@PathVariable String id) {
-    MatchDTO results = getMatchesUseCase.byId(id);
+  public ResponseEntity<GameDTO> getMatch(@PathVariable String id) {
+    GameDTO results = getMatchesUseCase.byId(id);
     return ResponseEntity.ok(results);
   }
 
   @GetMapping("/mvp/{id}")
-  public List<MatchDTO> getAllMvpMatches(@PathVariable String id) {
+  public List<GameDTO> getAllMvpMatches(@PathVariable String id) {
     var results = getMatchesByMVPPlayerUseCase.execute(id);
     return results;
   }

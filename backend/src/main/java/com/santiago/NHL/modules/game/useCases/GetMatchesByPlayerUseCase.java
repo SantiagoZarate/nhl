@@ -1,4 +1,4 @@
-package com.santiago.NHL.modules.match.useCases;
+package com.santiago.NHL.modules.game.useCases;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,26 +7,25 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.santiago.NHL.modules.match.entities.MatchEntity;
-import com.santiago.NHL.modules.match.repositories.MatchRepository;
-import com.santiago.NHL.modules.player.entities.PlayerMatchEntity;
+import com.santiago.NHL.modules.game.entities.GameEntity;
+import com.santiago.NHL.modules.game.repositories.GameRepository;
 import com.santiago.NHL.modules.player.repositories.PlayerMatchRepository;
 
 @Service
 public class GetMatchesByPlayerUseCase {
 
   @Autowired
-  private MatchRepository repository;
+  private GameRepository repository;
 
   @Autowired
   private PlayerMatchRepository playerMatchRepository;
 
   public void execute(String id) {
     UUID matchID = UUID.fromString(id);
-    Optional<MatchEntity> matchFound = repository.findById(matchID);
+    Optional<GameEntity> matchFound = repository.findById(matchID);
 
-    String hostTeamName = matchFound.get().getHostTeam().getName();
-    String guestTeamName = matchFound.get().getGuestTeam().getName();
+    String hostTeamName = matchFound.get().getLocal().getName();
+    String guestTeamName = matchFound.get().getAway().getName();
 
     System.out.println(matchID);
     System.out.println(hostTeamName);

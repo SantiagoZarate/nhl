@@ -18,6 +18,6 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, UUID> {
   @Query(value = "SELECT * FROM player WHERE name LIKE %:name%", nativeQuery = true)
   public List<PlayerEntity> findByName(String name);
 
-  @Query(value = "SELECT * FROM player WHERE team = :team", nativeQuery = true)
+  @Query(value = "SELECT * FROM player WHERE team_name = :team", nativeQuery = true)
   public List<PlayerEntity> findByTeam(String team);
 }

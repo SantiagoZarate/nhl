@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.santiago.NHL.modules.match.dtos.TeamDTO;
+import com.santiago.NHL.modules.game.dtos.TeamDTO;
 import com.santiago.NHL.modules.team.entities.TeamEntity;
 import com.santiago.NHL.modules.team.repositories.TeamRepository;
 

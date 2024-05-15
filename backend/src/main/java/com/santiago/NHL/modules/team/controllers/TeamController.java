@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.santiago.NHL.modules.match.dtos.MatchDTO;
-import com.santiago.NHL.modules.match.dtos.TeamDTO;
-import com.santiago.NHL.modules.match.useCases.GetMatchesByTeamUseCase;
+import com.santiago.NHL.modules.game.dtos.GameDTO;
+import com.santiago.NHL.modules.game.dtos.TeamDTO;
+import com.santiago.NHL.modules.game.useCases.GetMatchesByTeamUseCase;
 import com.santiago.NHL.modules.team.useCases.GetTeamsUseCase;
 
 @RestController
@@ -37,8 +37,8 @@ public class TeamController {
   }
 
   @GetMapping("/{name}/matches")
-  public ResponseEntity<List<MatchDTO>> getAllMatchsByTeam(@PathVariable String name) {
-    List<MatchDTO> results = getMatchesByTeamUseCase.execute(name, 10);
+  public ResponseEntity<List<GameDTO>> getAllMatchsByTeam(@PathVariable String name) {
+    List<GameDTO> results = getMatchesByTeamUseCase.execute(name, 10);
     return ResponseEntity.ok(results);
   }
 }
