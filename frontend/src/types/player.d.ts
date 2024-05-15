@@ -5,7 +5,7 @@ export interface Playerr {
   nationality: string;
   position: string;
   skill_level: number;
-  skills: Skills;
+  skills: Skills | null;
   injuries: Injury[];
   team: Team;
 }

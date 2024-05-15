@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AppLayout } from "./layouts/AppLayout";
-import { HomePage, PlayerPage, TeamPage } from "@page";
+import { HomePage, PlayerPage, PlayersPage, TeamPage } from "@page";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
@@ -10,6 +10,7 @@ export default function App() {
       <Route element={<AppLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/team/:teamName" element={<TeamPage />} />
+        <Route path="/players" element={<PlayersPage />} />
         <Route path="/player/:playerId" element={<PlayerPage />} />
       </Route>
     </Routes>
