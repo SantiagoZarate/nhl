@@ -1,7 +1,7 @@
 package com.santiago.NHL.modules.player.dtos.mapper;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.santiago.NHL.modules.game.dtos.GameDTO;
 import com.santiago.NHL.modules.player.dtos.PlayerDTO;
@@ -22,13 +22,9 @@ public class PlayerStatsMapper {
   }
 
   public static List<PlayerStatsDTO> mapList(List<PlayerStatsEntity> statsList) {
-    List<PlayerStatsDTO> newStatsList = new ArrayList<>();
-
-    statsList.stream().forEach(stat -> {
-      newStatsList.add(map(stat));
-    });
-
-    return newStatsList;
+    return statsList.stream()
+        .map(PlayerStatsMapper::map)
+        .collect(Collectors.toList());
   }
 
 }

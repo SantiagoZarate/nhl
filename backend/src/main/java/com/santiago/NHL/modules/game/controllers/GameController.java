@@ -15,7 +15,7 @@ import com.santiago.NHL.modules.game.useCases.GetMatchesUseCase;
 import com.santiago.NHL.modules.game.useCases.MatchsWonByTeamUseCase;
 
 @RestController
-@RequestMapping("/api/v1/matches")
+@RequestMapping("/api/v1/games")
 public class GameController {
 
   @Autowired
