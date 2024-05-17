@@ -7,15 +7,14 @@ export function usePlayer(playerID: string) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     getPlayerByID(playerID)
-      .then((res: Playerr[]) => res.find(res => res.id === playerID))
-      .then(res => setPlayer(res!))
-      .finally(() => setIsLoading(false))
-  }, [])
+      .then((res) => setPlayer(res))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return {
     player,
-    isLoading
-  }
+    isLoading,
+  };
 }

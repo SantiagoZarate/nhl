@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/team/:teamName" element={<TeamPage />} />
         <Route path="/players" element={<PlayersPage />} />
-        <Route path="/player/:playerId" element={<PlayerPage />} />
+        <Route path="/players/:playerId" element={<PlayerPage />} />
       </Route>
     </Routes>
   );

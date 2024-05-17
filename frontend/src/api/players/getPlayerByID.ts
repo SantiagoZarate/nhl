@@ -1,8 +1,9 @@
-const API_URL = import.meta.env.VITE_API_URL
+import { Playerr } from "@/types/player";
 
-export function getPlayerByID(playerID: string) {
-  console.log("Fetching player with ID: " + playerID)
+const API_URL = import.meta.env.VITE_API_URL;
 
-  return fetch(API_URL + "/players.json")
-    .then(res => res.json())
+export function getPlayerByID(playerID: string): Promise<Playerr> {
+  console.log("Fetching player with ID: " + playerID);
+
+  return fetch(API_URL + "/players/" + playerID).then((res) => res.json());
 }
