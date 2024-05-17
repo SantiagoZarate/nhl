@@ -57,9 +57,9 @@ public class PlayerController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<?> getPlayerById(@PathVariable String id) throws Exception {
+  public ResponseEntity<PlayerWithTeamDTO> getPlayerById(@PathVariable String id) throws Exception {
     UUID playerId = UUID.fromString(id);
-    PlayerDTO results = getPlayerUseCase.byId(playerId);
+    PlayerWithTeamDTO results = getPlayerUseCase.byId(playerId);
     return ResponseEntity.ok(results);
   }
 

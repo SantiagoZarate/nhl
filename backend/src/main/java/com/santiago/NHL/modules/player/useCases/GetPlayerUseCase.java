@@ -23,9 +23,9 @@ public class GetPlayerUseCase {
     return PlayerWithTeamDTO.mapListWithTeam(rawPlayers);
   }
 
-  public PlayerDTO byId(UUID id) throws Exception {
+  public PlayerWithTeamDTO byId(UUID id) throws Exception {
     Optional<PlayerEntity> player = repository.findById(id);
-    return PlayerDTO.map(player.get());
+    return PlayerWithTeamDTO.map(player.get());
   }
 
   public List<PlayerDTO> byName(String name) {
