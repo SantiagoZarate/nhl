@@ -8,7 +8,7 @@ export function PlayerPicture({ imageURL }: Props) {
   const imgSrc = imageURL ? imageURL : DEFAULT_PLAYER_PICTURE;
 
   return (
-    <picture className="size-48 aspect-square rounded-lg overflow-hidden">
+    <picture className="size-48 aspect-square rounded-2xl overflow-hidden shadow border-4 border-border">
       <img
         className="w-full h-full object-top"
         draggable={false}
