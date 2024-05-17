@@ -25,6 +25,10 @@ export function PlayerInfo({
         Player Rating:
         <PlayerRatingStars skillLevel={skillLevel!} />
       </div>
+      <footer className="w-fit flex items-center gap-2 rounded-full px-4 py-1 bg-green-200">
+        <div className="size-2 rounded-full bg-green-500" />
+        <span className="text-xs text-green-500 uppercase">active</span>
+      </footer>
     </article>
   );
 }

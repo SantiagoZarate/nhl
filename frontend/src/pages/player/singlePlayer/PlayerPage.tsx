@@ -4,6 +4,7 @@ import { PlayerInfo } from "./PlayerInfo";
 import { PlayerNavBar } from "./PlayerNavBar";
 import { PlayerPicture } from "./PlayerPicture";
 import { PlayerRecentGames } from "./PlayerRecentGames";
+import { PlayerRecentSkills } from "./PlayerRecentSkills";
 
 export function PlayerPage() {
   const { playerId } = useParams();
@@ -27,7 +28,21 @@ export function PlayerPage() {
           teamName={player?.team.name}
         />
       </section>
-      <PlayerRecentGames name={player?.name} teamName={player?.team.name} />
+      <section className="grid gap-8 grid-cols-1 sm:grid-cols-2">
+        <PlayerRecentGames name={player?.name} teamName={player?.team.name} />
+        {player?.skills ? (
+          <PlayerRecentSkills skills={player?.skills!} />
+        ) : (
+          <div className="w-full flex flex-col gap-4 justify-center h-48">
+            <article className="">
+              <h3 className="text-sm font-bold uppercase">Recent skills</h3>
+            </article>
+            <div className="bg-secondary rounded-lg h-full w-full flex items-center justify-center">
+              there is no record about this player skills...
+            </div>
+          </div>
+        )}
+      </section>
     </div>
   );
 }

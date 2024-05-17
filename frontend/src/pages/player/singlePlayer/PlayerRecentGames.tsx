@@ -2,6 +2,8 @@ import { getWinnerTeam } from "@/helpers/getWinnerTeam";
 import { usePlayer } from "@/hooks/usePlayer";
 import { useParams } from "react-router-dom";
 import { RecentGame } from "./RecentGame";
+import { HockeyArenaIcon } from "@/components/icons";
+import { Subheader } from "@/components/ui/Subheader";
 
 interface Props {
   name: string;
@@ -13,8 +15,8 @@ export function PlayerRecentGames({ name, teamName }: Partial<Props>) {
   const { stats } = usePlayer(playerId!);
 
   return (
-    <section className="flex flex-col gap-2">
-      <h3 className="text-sm font-bold uppercase">Most recent {name} games</h3>
+    <section className="flex flex-col gap-4">
+      <Subheader icon={<HockeyArenaIcon />}>Most recent {name} games</Subheader>
       <ul className="flex flex-col gap-4">
         {stats.map((stat) => {
           return (

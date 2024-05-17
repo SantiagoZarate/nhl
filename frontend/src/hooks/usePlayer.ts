@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export function usePlayer(playerID: string) {
   const [player, setPlayer] = useState<Player | null>(null);
   const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [stats, setStats] = useState<PlayerStats[]>([]);
   const [statsIsLoading, setStatsIsLoading] = useState(false);
