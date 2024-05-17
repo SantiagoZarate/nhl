@@ -1,9 +1,9 @@
 import { getAllPlayers } from "@/api/players/getAllPlayers";
-import { Playerr } from "@/types/player";
+import { Player } from "@/types/player";
 import { useEffect, useState } from "react";
 
 export function usePlayers() {
-  const [players, setPlayers] = useState<Playerr[]>([]);
+  const [players, setPlayers] = useState<Player[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

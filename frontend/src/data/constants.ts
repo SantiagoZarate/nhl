@@ -1,6 +1,7 @@
-import { Player } from "@type/types";
+export const DEFAULT_PLAYER_PICTURE =
+  "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png";
 
-export const topScorerPlayers: Player[] = [
+export const topScorerPlayers = [
   {
     id: crypto.randomUUID(),
     name: "Jhon Doe",
@@ -43,5 +44,16 @@ export const links = [
   {
     path: "/matches",
     value: "matches",
+  },
+];
+
+export const playerLins = [
+  {
+    path: "./skills",
+    value: "skills",
+  },
+  {
+    path: "./games",
+    value: "games",
   },
 ];

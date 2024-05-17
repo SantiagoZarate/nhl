@@ -1,4 +1,4 @@
-export interface Playerr {
+export interface Player {
   id: string;
   name: string;
   image_url: string;

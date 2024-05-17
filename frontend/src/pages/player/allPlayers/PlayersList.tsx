@@ -1,8 +1,8 @@
-import { Playerr } from "@/types/player";
+import { Player } from "@/types/player";
 import { Link } from "react-router-dom";
 
 interface Props {
-  players: Playerr[];
+  players: Player[];
 }
 
 export function PlayersList({ players }: Props) {
