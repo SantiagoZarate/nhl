@@ -1,17 +1,19 @@
 import { usePlayer } from "@/hooks/usePlayer";
 import { Navigate, useParams } from "react-router-dom";
 import { PlayerInfo } from "./information/PlayerInfo";
-import { PlayerNavBar } from "./PlayerNavBar";
 import { PlayerPicture } from "./information/PlayerPicture";
 import { PlayerRecentGames } from "./recentGames/PlayerRecentGames";
 import { PlayerRecentSkills } from "./skills/PlayerRecentSkills";
 import { InfoSkeleton } from "./loading/InfoSkeleton";
 import { RecentGamesSkeleton } from "./loading/RecentGamesSkeleton";
 import { SkillsChart } from "./skills/SkillsChart";
+import { RecentGamesList } from "./recentGames/RecentGamesList";
 
 export function PlayerPage() {
   const { playerId } = useParams();
-  const { isLoading, player, error, statsIsLoading } = usePlayer(playerId!);
+  const { isLoading, player, error, statsIsLoading, stats } = usePlayer(
+    playerId!
+  );
 
   if (error) {
     return <Navigate to={"/404"} />;
@@ -19,7 +21,6 @@ export function PlayerPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <PlayerNavBar />
       {isLoading ? (
         <InfoSkeleton />
       ) : (
@@ -35,11 +36,13 @@ export function PlayerPage() {
       )}
 
       <section className="grid gap-8 grid-cols-1 sm:grid-cols-2">
-        {statsIsLoading ? (
-          <RecentGamesSkeleton />
-        ) : (
-          <PlayerRecentGames name={player?.name} teamName={player?.team.name} />
-        )}
+        <PlayerRecentGames>
+          {statsIsLoading ? (
+            <RecentGamesSkeleton />
+          ) : (
+            <RecentGamesList stats={stats} teamName={player?.team.name} />
+          )}
+        </PlayerRecentGames>
 
         <PlayerRecentSkills>
           {isLoading ? (

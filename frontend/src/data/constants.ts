@@ -47,7 +47,11 @@ export const links = [
   },
 ];
 
-export const playerLins = [
+export const playerLinks = [
+  {
+    path: ".",
+    value: "general",
+  },
   {
     path: "./skills",
     value: "skills",

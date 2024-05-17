@@ -1,18 +1,23 @@
-import { playerLins } from "@/data/constants";
-import { Link } from "react-router-dom";
+import { BadgetLink } from "@/components/ui/BadgetLink";
+import { playerLinks } from "@/data/constants";
+import { useLocation } from "react-router-dom";
 
 export function PlayerNavBar() {
+  const { pathname } = useLocation();
+  const lastSegment = pathname.split("/").pop();
+  const currentPath = lastSegment?.includes("-") ? "general" : lastSegment;
+
   return (
     <header className="w-full  flex justify-center">
       <nav className="flex gap-3">
-        {playerLins.map((link) => (
-          <Link
+        {playerLinks.map((link) => (
+          <BadgetLink
             key={link.value}
-            className="min-w-[80px] text-center capitalize text-sm px-4 py-1 rounded-full bg-secondary border border-border"
-            to={link.path}
+            path={link.path}
+            isActive={currentPath === link.value}
           >
             {link.value}
-          </Link>
+          </BadgetLink>
         ))}
       </nav>
     </header>

@@ -1,33 +1,14 @@
-import { getWinnerTeam } from "@/helpers/getWinnerTeam";
-import { usePlayer } from "@/hooks/usePlayer";
-import { useParams } from "react-router-dom";
-import { RecentGame } from "./RecentGame";
 import { HockeyArenaIcon } from "@/components/icons";
 import { Subheader } from "@/components/ui/Subheader";
+import { PropsWithChildren } from "react";
 
-interface Props {
-  name: string;
-  teamName: string;
-}
+interface Props extends PropsWithChildren {}
 
-export function PlayerRecentGames({ name, teamName }: Partial<Props>) {
-  const { playerId } = useParams();
-  const { stats } = usePlayer(playerId!);
-
+export function PlayerRecentGames({ children }: Partial<Props>) {
   return (
     <section className="flex flex-col gap-4">
-      <Subheader icon={<HockeyArenaIcon />}>Most recent {name} games</Subheader>
-      <ul className="flex flex-col gap-4">
-        {stats.map((stat) => {
-          return (
-            <RecentGame
-              key={stat.id}
-              stats={stat}
-              winner={getWinnerTeam(stat.game) === teamName}
-            />
-          );
-        })}
-      </ul>
+      <Subheader icon={<HockeyArenaIcon />}>recent games</Subheader>
+      {children}
     </section>
   );
 }
