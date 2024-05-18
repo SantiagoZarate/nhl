@@ -21,7 +21,7 @@ export function SkillsChart({ skills }: Propps) {
         dotSize={10}
         dotColor={{ theme: "background" }}
         dotBorderWidth={2}
-        colors={{ scheme: "category10" }}
+        colors={{ scheme: "set1" }}
         blendMode="multiply"
         motionConfig="wobbly"
         legends={[

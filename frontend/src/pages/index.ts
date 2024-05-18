@@ -1,5 +1,8 @@
 export { HomePage } from "./home/HomePage";
 export { TeamPage } from "./team/TeamPage";
 
-export { PlayersPage } from "./player/allPlayers/PlayersPage";
-export { PlayerPage } from "./player/singlePlayer/PlayerPage";
+export { PlayersPage } from "./players/PlayersPage";
+
+export { PlayerPage } from "./player/home/PlayerPage";
+export { PlayerSkillsPage } from "./player/skills/PlayerSkillsPage";
+export { PlayerGamesPage } from "./player/games/PlayerGamesPage";
