@@ -1,39 +1,25 @@
 import { getPlayerStatsByPlayer } from "@/api/playerStats/getPlayerStatsByPlayer";
 import { getPlayerByID } from "@/api/players/getPlayerByID";
+import { Player } from "@/types/player";
 import { PlayerStats } from "@/types/playerStats";
-import { type Player } from "@type/player";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export function usePlayer(playerID: string) {
-  const [player, setPlayer] = useState<Player | null>(null);
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const player = useQuery<Player>({
+    queryKey: ["player"],
+    queryFn: () => getPlayerByID(playerID),
+  });
 
-  const [stats, setStats] = useState<PlayerStats[]>([]);
-  const [statsIsLoading, setStatsIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    getPlayerByID(playerID)
-      .then((res) => {
-        res.name === null ? setError(true) : setPlayer(res);
-      })
-      .catch(() => setError(true))
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  useEffect(() => {
-    setStatsIsLoading(true);
-    getPlayerStatsByPlayer(playerID)
-      .then((res) => setStats(res))
-      .finally(() => setStatsIsLoading(false));
-  }, []);
+  const playerStats = useQuery<PlayerStats[]>({
+    queryKey: ["playerStats"],
+    queryFn: () => getPlayerStatsByPlayer(playerID),
+  });
 
   return {
-    player,
-    isLoading,
-    stats,
-    statsIsLoading,
-    error,
+    player: player.data,
+    isLoading: player.isLoading,
+    error: player.error,
+    stats: playerStats.data,
+    statsIsLoading: playerStats.isLoading,
   };
 }
