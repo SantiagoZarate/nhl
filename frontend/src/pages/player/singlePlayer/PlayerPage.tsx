@@ -7,8 +7,8 @@ export function PlayerPage() {
     <div className="flex flex-col gap-8">
       <MainInfo />
       <section className="grid gap-8 grid-cols-1 sm:grid-cols-2">
-        <RecentGamesHandler />
         <SkillsHandler />
+        <RecentGamesHandler />
       </section>
     </div>
   );

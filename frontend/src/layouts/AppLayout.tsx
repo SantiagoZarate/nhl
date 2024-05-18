@@ -5,7 +5,7 @@ export function AppLayout() {
   return (
     <div className="bg-background">
       <Header />
-      <section className="pt-28 px-8 max-w-screen-lg mx-auto min-h-screen">
+      <section className="pt-28 px-8 pb-8 max-w-screen-lg mx-auto min-h-screen">
         <Outlet />
       </section>
     </div>

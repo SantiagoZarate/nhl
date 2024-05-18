@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { PlayerRecentSkills } from "./PlayerRecentSkills";
 import { SkillsChart } from "./SkillsChart";
 import { NoSkills } from "./NoSkills";
+import { SkillsLoader } from "./SkillsLoader";
 
 export function SkillsHandler() {
   const { playerId } = useParams();
@@ -10,7 +11,14 @@ export function SkillsHandler() {
 
   return (
     <PlayerRecentSkills>
-      {isLoading ? <NoSkills /> : <SkillsChart skills={player?.skills!} />}
+      {/* Loading UI */}
+      {isLoading && <SkillsLoader />}
+
+      {/* Player has no skills tracked */}
+      {!isLoading && !player?.skills && <NoSkills />}
+
+      {/* Player has skills tracked */}
+      {!isLoading && player?.skills && <SkillsChart skills={player?.skills!} />}
     </PlayerRecentSkills>
   );
 }
