@@ -1,4 +1,4 @@
-import { PlayerNavBar } from "@/layouts/PlayerNavBar";
+import { PlayerNavBar } from "@/common/playerNavBar/PlayerNavBar";
 import { Outlet } from "react-router-dom";
 
 export function PlayerPageLayout() {
