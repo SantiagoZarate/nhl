@@ -61,3 +61,5 @@ export const playerLinks = [
     value: "games",
   },
 ];
+
+export const skillsFields = ["pace", "vision", "dribble", "defense", "physique"] as const;
