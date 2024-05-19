@@ -1,0 +1,18 @@
+.focus-add-skill {
+  border: 3px solid transparent;
+  animation-name: initial-focus;
+  animation-duration: 1s;
+}
+
+@keyframes initial-focus {
+  0%,
+  40%,
+  80% {
+    border-color: transparent;
+  }
+
+  20%,
+  60% {
+    border-color: hsl(0deg, 0%, 30%);
+  }
+}

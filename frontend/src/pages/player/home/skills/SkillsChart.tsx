@@ -7,7 +7,7 @@ interface Propps {
 }
 
 export function SkillsChart({ skills }: Propps) {
-  const data = mapSkills(skills);
+  const data = mapSkills({ skills });
   return (
     <article className="bg-secondary rounded-lg min-h-[300px]">
       <ResponsiveRadar

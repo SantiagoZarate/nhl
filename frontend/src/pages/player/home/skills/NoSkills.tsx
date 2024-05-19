@@ -7,7 +7,7 @@ export function NoSkills() {
   return (
     <div className="bg-secondary rounded-lg h-full w-full flex flex-col gap-2 items-center justify-center min-h-[300px]">
       <Text>there is no record about this player skills...</Text>
-      <Link to={"./skills#add"}>
+      <Link to={"./skills#add-skills"}>
         <Button variant={"outline"} className="gap-1">
           <MiniPlusIcon />
           add records
