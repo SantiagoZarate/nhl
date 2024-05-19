@@ -1,10 +1,10 @@
-import { Team } from "@type/types";
+import { TeamMinified } from "@/types/player";
 import { FowardDecrecingCard } from "./DecrecingCard";
-import { TeamCard } from "./TeamCard";
+import { TeamCard } from "../../components/ui/TeamCard";
 import { CardRefType } from "@/hooks/useCardHoverAnimation";
 
 interface Props {
-  teams: Team[];
+  teams: TeamMinified[];
   cardsRef: React.MutableRefObject<CardRefType[] | null>;
 }
 

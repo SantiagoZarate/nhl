@@ -1,6 +1,6 @@
-import { Team } from "@type/types";
+import { TeamMinified } from "@/types/player";
 
-export function getAllTeams(): Promise<Team[]> {
+export function getAllTeams(): Promise<TeamMinified[]> {
   return fetch("http://localhost:5173/src/data/teams.json")
     .then(res => res.json())
 }

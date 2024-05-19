@@ -13,7 +13,7 @@ export const FowardDecrecingCard = forwardRef<HTMLAnchorElement, Props>(function
 
   return (
     <Link to={`/team/` + path}
-      className="transition-all duration-500 hover:-translate-y-1"
+      className="transition-all duration-500 "
       ref={ref}
       style={{
         translate: `0px -${positionYmultiplier}px`,

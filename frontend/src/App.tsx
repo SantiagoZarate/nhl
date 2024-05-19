@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { AppLayout } from "./layouts/AppLayout";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { PlayerPageLayout } from "./layouts/PlayerPageLayout";
+import { TeamsPage } from "./pages/teams/TeamsPage";
 import {
   HomePage,
   PlayerPage,
@@ -7,8 +10,6 @@ import {
   PlayersPage,
   TeamPage,
 } from "@page";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { PlayerPageLayout } from "./layouts/PlayerPageLayout";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="*" element={<NotFoundPage />} />
       <Route element={<AppLayout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/teams" element={<TeamsPage />} />
         <Route path="/team/:teamName" element={<TeamPage />} />
         <Route path="/players" element={<PlayersPage />} />
         <Route path="/players/:playerId" element={<PlayerPageLayout />}>

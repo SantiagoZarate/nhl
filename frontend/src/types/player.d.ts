@@ -28,4 +28,6 @@ export interface TeamMinified {
   name: string;
   city: string;
   image_url: string;
+  region?: string;
+  captain: string;
 }

@@ -1,9 +1,9 @@
 import { getAllTeams } from "@/api/teams/getAllTeams";
-import { Team } from "@/types/types";
+import { TeamMinified } from "@/types/player";
 import { useEffect, useState } from "react";
 
 export function useTeams() {
-  const [teams, setTeams] = useState<Team[]>([]);
+  const [teams, setTeams] = useState<TeamMinified[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -18,11 +18,23 @@ export function useTeams() {
     }, 2000)
   }, [])
 
+
+  const separatedTeamsByRegion = [{
+    region: "east",
+    teams: teams.filter(team => team.region === 'east')
+  },
+  {
+    region: "west",
+    teams: teams.filter(team => team.region === 'west')
+  }
+  ]
+
   const firstFiveTeams = teams.slice(0, 5);
 
   return {
     isLoading,
     teams,
-    firstFiveTeams
+    firstFiveTeams,
+    separatedTeamsByRegion
   }
 }
