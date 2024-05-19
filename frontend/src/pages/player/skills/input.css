@@ -1,0 +1,64 @@
+:root {
+  --slider-bg : hsl(210deg, 40%, 18%);
+}
+
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+.slider::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid var(--slider-bg);
+  box-shadow: -407px 0 0 400px var(--slider-bg);
+}
+
+.slider::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #f50;
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+/* Sliderticks */
+
+.sliderticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: hsl(0deg, 0%, 65%);
+}
+
+.sliderticks span {
+  display: flex;
+  justify-content: center;
+  width: 1px;
+  height: 10px;
+  background: #d3d3d3;
+  line-height: 40px;
+}

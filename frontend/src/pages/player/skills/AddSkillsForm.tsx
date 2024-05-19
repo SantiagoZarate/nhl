@@ -8,19 +8,22 @@ import { useFocusElement } from "@/hooks/useFocusElement";
 import { Skills } from "@/types/player";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
+import './input.css'
 
 interface Props {
-  onChange: (skills: Skills) => void
+  onChange: (skills: Skills) => void;
+  skills: Skills;
+  resetSkills: () => void;
 }
 
-export function AddSkillsForm({ onChange }: Props) {
+export function AddSkillsForm({ onChange, skills, resetSkills }: Props) {
   const { elementRef } = useFocusElement();
   const form = useForm<SkillsForm>({
     resolver: zodResolver(formSchema)
   });
 
   const onSubmit = (data: SkillsForm) => {
+    resetSkills()
     console.log(data);
   };
 
@@ -31,7 +34,10 @@ export function AddSkillsForm({ onChange }: Props) {
       className="min-h-[300px] rounded-lg bg-border p-4"
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} onChange={() => onChange(mapFormValuesToState(form.getValues()))} className="space-y-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          onChange={() => onChange(mapFormValuesToState(form.getValues()))}
+          className="space-y-4 flex flex-col gap-4">
           {
             skillsFields.map(f => (
               <FormField
@@ -39,18 +45,30 @@ export function AddSkillsForm({ onChange }: Props) {
                 control={form.control}
                 name={f}
                 render={({ field }) => (
-                  <FormItem className="space-y-0">
-                    <FormLabel className="capitalize">{f}</FormLabel>
+                  <FormItem className="relative">
+                    <FormLabel className="capitalize flex justify-between">
+                      {f}
+                      <div>
+                        {skills[f]}
+                      </div>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         type="range"
                         min={0}
                         max={100}
-                        defaultValue={["0"]}
                         {...field}
-                        className="p-0"
+                        value={skills[f]}
+                        className="slider p-0 h-fit"
                       />
                     </FormControl>
+                    <div className="sliderticks">
+                      <span>0</span>
+                      <span>25</span>
+                      <span>50</span>
+                      <span>75</span>
+                      <span>100</span>
+                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
