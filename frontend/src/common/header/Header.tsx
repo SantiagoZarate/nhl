@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { NavBarLinks } from "./NavBarLinks";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -7,7 +8,9 @@ export function Header() {
       <div className="max-w-screen-lg py-8 flex justify-between items-center mx-auto">
         <NavBarLinks />
         <div>
-          <Button variant={"outline"}>login</Button>
+          <Link to={'/auth/login'}>
+            <Button variant={"outline"}>login</Button>
+          </Link>
         </div>
       </div>
     </header>

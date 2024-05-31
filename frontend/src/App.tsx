@@ -9,7 +9,10 @@ import {
   PlayerSkillsPage,
   PlayersPage,
   TeamPage,
+  LoginPage,
+  RegisterPage
 } from "@page";
+import { AuthLayout } from "./layouts/AuthLayout";
 
 export default function App() {
   return (
@@ -27,6 +30,10 @@ export default function App() {
             element={<PlayerSkillsPage />}
           />
           <Route path="/players/:playerId/games" element={<PlayerPage />} />
+        </Route>
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
         </Route>
       </Route>
     </Routes>
